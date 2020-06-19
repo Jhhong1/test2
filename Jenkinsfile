@@ -7,10 +7,12 @@ pipeline {
     }
     stages {
         stage('Clone') {
-            def causes = currentBuild.getBuildCauses()
-            def specificCause = currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')
-            echo "specificCause: ${specificCause}"
-            echo "current branch: ${BRANCH}"
+            steps {
+                def causes = currentBuild.getBuildCauses()
+                def specificCause = currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')
+                echo "specificCause: ${specificCause}"
+                echo "current branch: ${BRANCH}"
+            }
         }
     }
 }
